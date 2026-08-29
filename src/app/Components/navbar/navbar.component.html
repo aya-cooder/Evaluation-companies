@@ -1,0 +1,38 @@
+<p>navbar works!</p>
+<nav class="navbar bg-light.bg-gradient shadow navbar-expand-lg position-sticky end-0 start-0">
+    <div class="container flex-lg-row justify-content-center flex-md-column  flex-sm-column  align-items-center  lign-items-sm-center lign-items-md-center ">
+  <div class="col ">
+      <a class="" href="#">
+        <i class="fa-solid fa-chart-pie fs-3 text-secondary-emphasis "></i>
+      </a>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+  </div>
+    
+  <div class=" col col_two ">
+        <ul class="navbar-nav d-flex justify-content-end align-items-center  ">
+          <!-- @if (islogin) 
+          { -->
+          <li class="nav-item">
+            <a class="nav-link fw-semibold fs-5 " [routerLink]="['/login']" routerLinkActive="bg-info bg-gradient text-white rounded-pill">login</a>
+          </li>
+          <!-- } -->
+            <!-- @if(isAdmin) 
+           { -->
+            <li class="nav-item">
+              <a class="nav-link fs-5  fw-semibold" [routerLink]="['/register']" routerLinkActive="bg-info bg-gradient text-white rounded-pill">Register</a>
+            </li>
+           <!-- } -->
+           <!-- @if (!islogin) 
+           { -->
+             <li class="nav-item">
+              <a class="nav-link  fs-5 fw-semibold acti"  (click)=" logout()" routerLinkActive="bg-info bg-gradient text-white rounded-pill">Logout</a>
+            </li>
+          <!-- } -->
+          
+          </ul>
+  </div>
+  </div>
+  </nav>
+  

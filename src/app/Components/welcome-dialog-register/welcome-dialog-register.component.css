@@ -1,0 +1,80 @@
+/* تنسيق الـ dialog بشكل يتناسب مع تصميم صفحة تسجيل الدخول */
+.welcome-dialog {
+    background: rgb(29, 29, 29);/* خلفية بيضاء للـ dialog */
+    border-radius: 12px; /* زوايا دائرية أكثر */
+    padding: 50px; /* حشو داخلي أكبر */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* ظل أقوى */
+    width: 563px; /* عرض محدد للـ dialog */
+    position: relative; /* لتمكين وضع الأيقونة في الزاوية */
+  }
+  
+  .dialog-header {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .close-icon {
+    font-size: 24px; /* حجم أيقونة الإغلاق */
+    color: #888; /* لون الأيقونة */
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .close-icon:hover {
+    color: #333; /* لون الأيقونة عند التمرير فوقها */
+  }
+  
+  .dialog-content {
+    text-align: center; /* توسيط النصوص */
+  }
+  
+  .welcome-title {
+    font-size: 28px; /* حجم خط أكبر */
+    color: #ffff; /* لون النص */
+    margin-bottom: 15px; /* مسافة أسفل العنوان */
+  }
+  
+  .highlight {
+    color: #f0ad4e; /* لون خاص لكلمة "Welcome" */
+  }
+  
+  .welcome-text {
+    font-size: 18px; /* حجم خط أكبر للنص */
+    color: #666; /* لون النص */
+    margin-bottom: 25px; /* مسافة أسفل النص */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center; /* توسيط الأزرار */
+    gap: 15px; /* مسافة أكبر بين الأزرار */
+  }
+  
+  .btn {
+    border: none;
+    border-radius: 8px; /* زوايا دائرية أكبر */
+    padding: 12px 25px; /* حشو أكبر */
+    font-size: 18px; /* حجم خط أكبر */
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .btn-register {
+    background: #007bff; /* لون خلفية زر التسجيل */
+    color: #fff; /* لون النص */
+  }
+  
+  .btn-register:hover {
+    background: #0056b3; /* لون الخلفية عند التمرير فوق الزر */
+  }
+  
+  .btn-dashboard {
+    background: #28a745; /* لون خلفية زر الانتقال إلى لوحة التحكم */
+    color: #fff; /* لون النص */
+  }
+  
+  .btn-dashboard:hover {
+    background: #218838; /* لون الخلفية عند التمرير فوق الزر */
+  }
+  

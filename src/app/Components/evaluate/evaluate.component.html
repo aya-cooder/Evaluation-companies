@@ -1,0 +1,159 @@
+<form class="filter-form">
+  <div class="filters-row">
+
+    <!-- Company Name -->
+    <div class="filter-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label class="label">اسم الشركة</mat-label>
+
+        <mat-select
+          (selectionChange)="applyRequestTypeFilter($event.value)"
+          class="company-select">
+
+          <mat-option
+            *ngFor="let type of requestTypes"
+            [value]="type.value">
+            {{ type.label }}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Hide Companies -->
+    <div class="filter-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label class="label">
+          اختر الشركات لإخفاءها
+        </mat-label>
+
+        <mat-select
+          id="companyFilter"
+          name="companyFilter"
+          [(ngModel)]="selectedCompanyNames"
+          (selectionChange)="onSelectionChange()"
+          multiple
+          class="company-select">
+
+          <mat-option
+            *ngFor="let company of allCompanies"
+            [value]="company.companyName">
+            {{ company.companyName }}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <!-- Actions -->
+  <div class="actions-row">
+
+    <!-- Accepted Count -->
+    <div class="action-card">
+      <div class="action-icon">
+        <mat-icon>bar_chart</mat-icon>
+      </div>
+
+      <div class="action-content">
+        <span>عدد الطلبات المقبولة</span>
+
+        <button
+          mat-button
+          type="button"
+          (click)="openTotalAcceptedDialog()">
+          عرض الرسم البياني
+        </button>
+      </div>
+    </div>
+
+    <!-- Accepted Percentage -->
+    <div class="action-card">
+      <div class="action-icon">
+        <mat-icon>analytics</mat-icon>
+      </div>
+
+      <div class="action-content">
+        <span>نسبة الطلبات المقبولة</span>
+
+        <button
+          mat-button
+          type="button"
+          (click)="openAcceptedPercentageDialog()">
+          عرض الرسم البياني
+        </button>
+      </div>
+    </div>
+
+    <!-- Excel -->
+    <div class="action-card">
+      <div class="action-icon">
+        <mat-icon>description</mat-icon>
+      </div>
+
+      <div class="action-content">
+        <span>تصدير البيانات</span>
+
+        <button
+          mat-button
+          type="button"
+          (click)="exportToExcel()">
+          تحميل شيت الإكسيل
+        </button>
+      </div>
+    </div>
+
+  </div>
+</form>
+
+
+<!-- Companies Table -->
+<div class="table-wrapper">
+
+  <table class="companies-table">
+
+    <thead>
+      <tr>
+        <th>العدد</th>
+        <th>اسم الشركة</th>
+        <th>إجمالي عدد الطلبات</th>
+        <th>إجمالي الطلبات المقبولة</th>
+        <th>نسبة المقبول</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr
+        *ngFor="let item of filteredCompanies; let i = index">
+
+        <td class="index-cell">
+          {{ i + 1 }}
+        </td>
+
+        <td class="company-name">
+          {{ item.companyName }}
+        </td>
+
+        <td>
+          {{ item.totalNumber }}
+        </td>
+
+        <td>
+          {{ item.totalAcceptedNumber }}
+        </td>
+
+        <td>
+          <span class="percentage accepted">
+            {{ item.acceptedPercentage }}%
+          </span>
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

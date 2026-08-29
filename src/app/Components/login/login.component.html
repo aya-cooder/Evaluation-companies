@@ -1,0 +1,84 @@
+<div class="parent clearfix">
+  <!-- <img src="../../../assets/Background/beautiful-landscape.jpg" class="fixed z-10 w-2/12 md:block hidden" alt="logo"> -->
+
+  <div class="bg-illustration">
+    <div class="burger-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="login">
+    <div class="container">
+      <h1 class="text-center">تسجيل الدخول </h1>
+
+      <div class="login-form">
+        <form [formGroup]="login" (ngSubmit)="loginSubmit()">
+          <input type="text" placeholder="Username" formControlName="username">
+          <div class="input-field">
+            <input 
+              [type]="isPasswordVisible ? 'text' : 'password'" 
+              placeholder="Password" 
+              formControlName="password">
+            <fa-icon 
+              [icon]="isPasswordVisible ? faEye : faEyeSlash" 
+              class="password-icon" 
+              (click)="togglePasswordVisibility()" >
+            </fa-icon>
+          </div>
+          <div class="error-message" *ngIf="Error">
+            "The username or password you entered is incorrect."
+          </div>
+          <button type="submit" [disabled]="!login.valid">LOG-IN</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="main-wrapper">
+  <div class="main">
+    <img src="../../../assets/Logos/logo.png" alt="Logo" class="logo-image">
+    <div class="card">
+      <div class="card-header">
+        <h2>Login</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="login" (ngSubmit)="loginSubmit()">
+          <div class="form-group">
+            <label for="username">Username <span class="required">*</span></label>
+            <div class="input-field" [class.error]="login.controls['username'].dirty && login.controls['username'].hasError('required')">
+              <input type="text" id="username" formControlName="username" class="form-control" required>
+            </div>
+            <small *ngIf="login.controls['username'].dirty && login.controls['username'].hasError('required')" class="text-danger">*Username is required*</small>
+          </div>
+        
+          <div class="form-group">
+            <label for="password">Password <span class="required">*</span></label>
+            <div class="input-group">
+              <input 
+                [type]="isPasswordVisible ? 'text' : 'password'" 
+                [class.error]="login.controls['password'].dirty && login.controls['password'].hasError('required')" 
+                id="password" 
+                formControlName="password" 
+                class="form-control" 
+                required
+              >
+              <fa-icon [icon]="isPasswordVisible ? faEye : faEyeSlash" (click)="togglePasswordVisibility()" class="password-icon"></fa-icon>
+            </div>
+            <small *ngIf="login.controls['password'].dirty && login.controls['password'].hasError('required')" class="text-danger">*Password is required*</small>
+            <div class="forgot-password-link">
+              <a routerLink="/forgot-password">Forgot Password?</a>
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <input type="submit" class="btn" value="Login">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,47 @@
+<div class="app-container">
+
+  <!-- Server waking up message -->
+
+  <div
+    class="api-waking-message"
+    *ngIf="apiWakingUp$ | async">
+
+<div class="api-waking-box">
+
+  <div class="server-spinner"></div>
+
+  <div class="message-content">
+    <strong>جاري الاتصال بالخادم</strong>
+
+    <p>
+      السيرفر قيد التشغيل الآن، من فضلك انتظري لحظات...
+    </p>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- Application pages -->
+
+<router-outlet></router-outlet>
+
+  <!-- Loading Spinner -->
+
+<ngx-spinner
+bdColor="rgba(0, 0, 0, 0.8)"
+size="large"
+color="#ee0659"
+type="ball-circus"
+[fullScreen]="true">
+
+```
+<p style="color: white;">
+  Loading....
+</p>
+
+
+  </ngx-spinner>
+
+</div>

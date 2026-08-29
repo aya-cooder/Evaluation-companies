@@ -1,0 +1,7 @@
+<h2 mat-dialog-title>{{ data.chartType === 'acceptedPercentage' ? 'نسبة المقبول' : 'عدد الطلبات المقبولة' }}</h2>
+<mat-dialog-content>
+  <canvas id="dialogChartCanvas"></canvas>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()" class="btn">Close</button>
+</mat-dialog-actions>

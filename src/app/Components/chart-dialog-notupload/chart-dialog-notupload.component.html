@@ -1,0 +1,8 @@
+<!-- chart-dialog-notupload.component.html -->
+<h2 mat-dialog-title>{{ data.chartType === 'acceptedPercentage' ? 'نسبة لم يتم الرفع ' : 'عدد الطلبات التي لم يتم رفعها ' }}</h2>
+<mat-dialog-content>
+  <canvas id="dialogChartCanvas"></canvas>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()" class="btn">Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,16 @@
+<div class="welcome-dialog">
+    <div class="dialog-header">
+      <span class="close-icon" (click)="onClose()">×</span>
+    </div>
+    <div class="dialog-content">
+      <h2 class="welcome-title">
+        <span class="highlight">Welcome</span> {{ firstName }}
+      </h2>
+      <p class="welcome-text">Please Choose any Option</p>
+      <div class="button-container">
+        <button class="btn btn-register" (click)="navigateToRegister()">Register New Users</button>
+        <button class="btn btn-dashboard" (click)="navigateToDashboard()">Go to Dashboard</button>
+      </div>
+    </div>
+  </div>
+  

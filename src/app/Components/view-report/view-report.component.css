@@ -1,0 +1,305 @@
+
+/* ==============================
+   Filter
+================================ */
+
+.filter-form {
+  width: 100%;
+  margin-bottom: 25px;
+  direction: ltr;
+}
+
+
+/* ==============================
+   Filter Row
+================================ */
+
+.filter-form .row {
+  display: flex;
+  align-items: center;
+  margin: 0 -8px;
+}
+
+.filter-form .col-md-6 {
+  padding: 0 8px;
+}
+
+
+/* ==============================
+   Material Form Field
+================================ */
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.mat-form-field .mat-select,
+.mat-form-field .mat-input-element {
+  width: 100%;
+}
+
+.mat-form-field.mat-form-field-appearance-outline
+.mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+
+/* Label */
+
+.label {
+  color: #203647;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+
+/* ==============================
+   Excel Container
+================================ */
+
+.diagram-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 8px 15px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+
+.diagram-container:hover {
+  border-color: #ee0659;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Icon */
+
+.diagram-container mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: #ee0659;
+}
+
+
+/* Text */
+
+.diagram-container span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #203647;
+}
+
+
+/* ==============================
+   Excel Button
+================================ */
+
+.diagram-container button {
+  background-color: #ee0659;
+  color: #ffffff;
+  border: none;
+  border-radius: 22px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+
+.diagram-container button:hover {
+  background-color: #c9044b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.diagram-container button:active {
+  transform: scale(0.97);
+}
+
+
+/* ==============================
+   Spacing
+================================ */
+
+.ml-2 {
+  margin-left: 10px;
+}
+
+
+/* ==============================
+   Table Wrapper
+================================ */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==============================
+   Table
+================================ */
+
+table {
+  width: 100%;
+  min-width: 850px;
+  border-collapse: collapse;
+  direction: ltr;
+  background-color: #ffffff;
+}
+
+
+/* ==============================
+   Table Header
+================================ */
+
+th {
+  background-color: #203647;
+  color: #ffffff;
+  padding: 15px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid #30495a;
+}
+
+
+/* ==============================
+   Table Cells
+================================ */
+
+td {
+  padding: 13px 12px;
+  font-size: 15px;
+  text-align: center;
+  color: #333333;
+  border: 1px solid #e1e1e1;
+  vertical-align: middle;
+}
+
+
+/* Company Name */
+
+.company-name {
+  font-weight: 700;
+  color: #203647;
+}
+
+
+/* ==============================
+   Table Rows
+================================ */
+
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+
+tbody tr:hover {
+  background-color: #fafafa;
+}
+
+
+tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+
+/* ==============================
+   Responsive - Tablet
+================================ */
+
+@media (max-width: 768px) {
+
+  .filter-form .row {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .filter-form .col-md-6 {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  .diagram-container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  table {
+    min-width: 800px;
+  }
+
+  th {
+    font-size: 15px;
+    padding: 12px 10px;
+  }
+
+  td {
+    font-size: 14px;
+    padding: 11px 10px;
+  }
+
+}
+
+
+/* ==============================
+   Responsive - Mobile
+================================ */
+
+@media (max-width: 480px) {
+
+  .filter-form {
+    margin-bottom: 20px;
+  }
+
+  .label {
+    font-size: 15px;
+  }
+
+  .diagram-container {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .diagram-container span {
+    font-size: 14px;
+  }
+
+  .diagram-container button {
+    font-size: 13px;
+    padding: 7px 14px;
+  }
+
+  .ml-2 {
+    margin-left: 5px;
+  }
+
+  .table-wrapper {
+    border-radius: 8px;
+  }
+
+  th {
+    font-size: 14px;
+  }
+
+  td {
+    font-size: 13px;
+  }
+
+}
+

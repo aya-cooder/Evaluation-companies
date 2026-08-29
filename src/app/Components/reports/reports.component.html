@@ -1,0 +1,253 @@
+
+<div class="container">
+
+  <h2>إنشاء تقرير الشركة</h2>
+
+  <form>
+
+    <mat-horizontal-stepper [linear]="true" #stepper>
+
+      <!-- Step 1: Company Report -->
+      <mat-step [stepControl]="companyForm.controls.companyid">
+
+        <ng-template matStepLabel>
+          تقرير الطلبات الجديدة
+        </ng-template>
+
+        <div class="form-group">
+
+          <h3>
+            إنشاء تقرير خاص بالطلبات الجديدة للشركة
+          </h3>
+
+          <label for="companyid">
+            اسم الشركة
+          </label>
+
+          <select
+            id="companyid"
+            name="companyid"
+            class="form-control"
+            [(ngModel)]="companyid"
+            (ngModelChange)="onCompanyChange($event)"
+            required>
+
+            <option
+              *ngFor="let company of filteredRequestTypes"
+              [value]="company.value">
+
+              {{ company.label }}
+
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="report">
+            التقرير
+          </label>
+
+          <textarea
+            id="report"
+            name="report"
+            class="form-control"
+            [(ngModel)]="report"
+            required>
+          </textarea>
+
+        </div>
+
+
+        <div class="buttons-container">
+
+          <button
+            mat-button
+            type="button"
+            matStepperNext>
+
+            التالي
+
+          </button>
+
+          <button
+            mat-button
+            type="submit"
+            (click)="onSubmit()">
+
+            حفظ التقرير
+
+          </button>
+
+        </div>
+
+      </mat-step>
+
+
+      <!-- Step 2: Edit Report -->
+      <mat-step [stepControl]="companyForm.controls.reportEdit">
+
+        <ng-template matStepLabel>
+          تقرير التعديلات
+        </ng-template>
+
+        <div class="form-group">
+
+          <h3>
+            إنشاء تقرير خاص بالتعديلات
+          </h3>
+
+          <label for="companyid">
+            اسم الشركة
+          </label>
+
+          <select
+            id="companyid"
+            name="companyid"
+            class="form-control"
+            [(ngModel)]="companyid"
+            (ngModelChange)="onCompanyChange($event)"
+            required>
+
+            <option
+              *ngFor="let company of filteredRequestTypes"
+              [value]="company.value">
+
+              {{ company.label }}
+
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="reportEdit">
+            التقرير
+          </label>
+
+          <textarea
+            id="reportEdit"
+            name="reportEdit"
+            class="form-control"
+            [(ngModel)]="reportEdit"
+            required>
+          </textarea>
+
+        </div>
+
+
+        <div class="buttons-container">
+
+          <button
+            mat-button
+            type="button"
+            matStepperPrevious>
+
+            السابق
+
+          </button>
+
+          <button
+            mat-button
+            type="submit"
+            (click)="submitEdit()">
+
+            حفظ التقرير
+
+          </button>
+
+        </div>
+
+      </mat-step>
+
+
+      <!-- Step 3: lmetmelraf Report -->
+      <mat-step [stepControl]="companyForm.controls.reportlmetmelraf">
+
+        <ng-template matStepLabel>
+          الطلبات غير المرفوعة مساحياً
+        </ng-template>
+
+        <div class="form-group">
+
+          <h3>
+            إنشاء تقرير خاص بالطلبات التي لم يتم رفعها مساحياً
+          </h3>
+
+          <label for="companyid">
+            اسم الشركة
+          </label>
+
+          <select
+            id="companyid"
+            name="companyid"
+            class="form-control"
+            [(ngModel)]="companyid"
+            (ngModelChange)="onCompanyChange($event)"
+            required>
+
+            <option
+              *ngFor="let company of filteredRequestTypes"
+              [value]="company.value">
+
+              {{ company.label }}
+
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="reportlmetmelraf">
+            التقرير
+          </label>
+
+          <textarea
+            id="reportlmetmelraf"
+            name="reportlmetmelraf"
+            class="form-control"
+            [(ngModel)]="reportlmetmelraf"
+            required>
+          </textarea>
+
+        </div>
+
+
+        <div class="buttons-container">
+
+          <button
+            mat-button
+            type="button"
+            matStepperPrevious>
+
+            السابق
+
+          </button>
+
+          <button
+            mat-button
+            type="submit"
+            (click)="submitlmetmelraf()">
+
+            حفظ التقرير
+
+          </button>
+
+        </div>
+
+      </mat-step>
+
+    </mat-horizontal-stepper>
+
+  </form>
+
+</div>

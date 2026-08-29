@@ -1,0 +1,554 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    direction: rtl;
+    text-align: center;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 18px 25px;
+
+    z-index: 1000;
+
+    background: transparent;
+}
+
+header .container {
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    display: block;
+
+    width: auto;
+    max-width: 180px;
+    max-height: 100px;
+
+    margin: 0;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 130px 30px 60px;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            rgba(32, 54, 71, 0.78),
+            rgba(32, 54, 71, 0.92)
+        ),
+        url("../../../assets/Background/beautiful-landscape.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+    width: 100%;
+    max-width: 850px;
+
+    padding: 45px 50px;
+
+    background: rgba(0, 0, 0, 0.42);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(4px);
+
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.hero h2 {
+    margin: 0 0 22px;
+
+    color: #f0dbbf;
+
+    font-size: clamp(28px, 4vw, 42px);
+
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.hero p {
+    margin: 0 0 30px;
+
+    color: #fff;
+
+    font-size: clamp(17px, 2vw, 22px);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.cta-button {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-width: 180px;
+    min-height: 55px;
+
+    padding: 12px 28px;
+
+    background-color: #f0ad4e;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    border-radius: 10px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.cta-button:hover {
+    background-color: #e49c36;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+    color: #fff;
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   LARGE TABLET / SMALL LAPTOP
+   1200px
+========================================= */
+
+@media (max-width: 1200px) {
+
+    header {
+        padding: 16px 22px;
+    }
+
+    .logo {
+        max-width: 165px;
+        max-height: 90px;
+    }
+
+    .hero {
+        padding: 120px 25px 50px;
+    }
+
+    .hero-content {
+        max-width: 780px;
+
+        padding: 40px 40px;
+    }
+
+    .hero h2 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+}
+
+
+/* =========================================
+   TABLET
+   992px
+========================================= */
+
+@media (max-width: 992px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo {
+        max-width: 150px;
+        max-height: 80px;
+    }
+
+    .hero {
+        padding: 115px 22px 45px;
+    }
+
+    .hero-content {
+        max-width: 700px;
+
+        padding: 38px 32px;
+
+        border-radius: 16px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+
+        line-height: 1.5;
+
+        margin-bottom: 18px;
+    }
+
+    .hero p {
+        font-size: 18px;
+
+        margin-bottom: 25px;
+    }
+
+    .cta-button {
+        min-width: 170px;
+
+        min-height: 52px;
+
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================
+   SMALL TABLET
+   768px
+========================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 12px 18px;
+    }
+
+    .logo {
+        max-width: 135px;
+        max-height: 75px;
+    }
+
+    .hero {
+        min-height: 100vh;
+
+        padding: 110px 20px 40px;
+
+        align-items: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 600px;
+
+        padding: 32px 25px;
+
+        border-radius: 14px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+
+        line-height: 1.6;
+    }
+
+    .hero p {
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+    .cta-button {
+        min-width: 160px;
+
+        min-height: 50px;
+
+        padding: 10px 24px;
+
+        font-size: 16px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   576px
+========================================= */
+
+@media (max-width: 576px) {
+
+    header {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        max-width: 120px;
+        max-height: 65px;
+    }
+
+    .hero {
+        min-height: 100vh;
+
+        padding: 100px 15px 30px;
+    }
+
+    .hero-content {
+        width: 100%;
+
+        padding: 28px 20px;
+
+        border-radius: 12px;
+
+        background: rgba(0, 0, 0, 0.48);
+    }
+
+    .hero h2 {
+        font-size: 24px;
+
+        line-height: 1.65;
+
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 16px;
+
+        line-height: 1.8;
+
+        margin-bottom: 22px;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 280px;
+
+        min-height: 50px;
+
+        margin: 0 auto;
+
+        font-size: 16px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   400px
+========================================= */
+
+@media (max-width: 400px) {
+
+    header {
+        padding: 8px 12px;
+    }
+
+    .logo {
+        max-width: 105px;
+        max-height: 58px;
+    }
+
+    .hero {
+        padding: 90px 12px 25px;
+    }
+
+    .hero-content {
+        padding: 24px 16px;
+
+        border-radius: 10px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+
+        line-height: 1.7;
+    }
+
+    .hero p {
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+
+    .cta-button {
+        max-width: 250px;
+
+        min-height: 48px;
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+   360px
+========================================= */
+
+@media (max-width: 360px) {
+
+    .logo {
+        max-width: 95px;
+    }
+
+    .hero {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .hero-content {
+        padding: 22px 14px;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .cta-button {
+        min-height: 46px;
+
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================
+   LANDSCAPE MOBILE
+========================================= */
+
+@media (max-height: 600px) and (max-width: 768px) {
+
+    header {
+        padding: 7px 15px;
+    }
+
+    .logo {
+        max-height: 55px;
+    }
+
+    .hero {
+        min-height: 100vh;
+
+        padding-top: 75px;
+        padding-bottom: 20px;
+    }
+
+    .hero-content {
+        padding: 20px 25px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 14px;
+
+        margin-bottom: 15px;
+    }
+
+    .cta-button {
+        min-height: 44px;
+
+        font-size: 14px;
+    }
+}

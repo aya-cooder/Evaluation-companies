@@ -1,0 +1,202 @@
+
+<form class="filter-form mt-6">
+
+  <!-- Filters -->
+  <div class="row">
+
+    <!-- Company -->
+    <div class="col-md-4">
+      <mat-form-field appearance="outline" class="w-100">
+
+        <mat-label class="label">
+          اسم الشركة
+        </mat-label>
+
+        <mat-select
+          (selectionChange)="applyRequestTypeFilter($event.value)">
+
+          <mat-option
+            *ngFor="let type of requestTypes"
+            [value]="type.value">
+
+            {{ type.label }}
+
+          </mat-option>
+
+        </mat-select>
+
+      </mat-form-field>
+    </div>
+
+
+    <!-- Start Date -->
+    <div class="col-md-4">
+      <mat-form-field appearance="outline" class="w-100">
+
+        <mat-label class="label">
+          تاريخ البداية
+        </mat-label>
+
+        <input
+          matInput
+          placeholder="اختر تاريخ"
+          type="date"
+          (change)="onStartDateFilterChange($event)"
+          [(ngModel)]="startYear"
+          name="startDate">
+
+      </mat-form-field>
+    </div>
+
+
+    <!-- End Date -->
+    <div class="col-md-4 d-flex align-items-center">
+
+      <mat-form-field appearance="outline" class="w-100">
+
+        <mat-label class="label">
+          تاريخ النهاية
+        </mat-label>
+
+        <input
+          matInput
+          placeholder="اختر تاريخ"
+          type="date"
+          (change)="onEndDateFilterChange($event)"
+          [(ngModel)]="endYear"
+          name="endDate">
+
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        type="button"
+        (click)="applyFilters()"
+        class="search-button ml-2">
+
+        Search
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- Actions -->
+  <div class="row actions-row">
+
+    <!-- Diagram -->
+    <div class="col-md-4">
+
+      <div class="diagram-container">
+
+        <mat-icon>
+          bar_chart
+        </mat-icon>
+
+        <span>
+          عرض الرسم البياني
+        </span>
+
+        <button
+          mat-button
+          type="button"
+          (click)="openCombinedChartDialog()">
+
+          فتح الرسم البياني
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- Excel -->
+    <div class="col-md-4">
+
+      <div class="diagram-container">
+
+        <mat-icon>
+          description
+        </mat-icon>
+
+        <span>
+          تصدير البيانات
+        </span>
+
+        <button
+          mat-button
+          type="button"
+          (click)="exportToExcel()">
+
+          تحميل ملف الإكسيل
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</form>
+
+
+<!-- Companies Table -->
+
+<div class="table-wrapper">
+
+  <table>
+
+    <thead>
+
+      <tr>
+        <th>العدد</th>
+        <th>اسم الشركة</th>
+        <th>التاريخ</th>
+        <th>إجمالي عدد الطلبات</th>
+        <th>إجمالي عدد الطلبات المقبولة</th>
+        <th>نسبة المقبول</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr
+        *ngFor="let item of companies; let i = index">
+
+        <td>
+          {{ i + 1 }}
+        </td>
+
+        <td>
+          {{ item.compName }}
+        </td>
+
+        <td>
+          {{ formatDate(item.assigDateMonth, item.assigDateYear) }}
+        </td>
+
+        <td>
+          {{ item.totalorders }}
+        </td>
+
+        <td>
+          {{ item.acceptedOrders }}
+        </td>
+
+        <td class="percentage accepted">
+          {{ item.precentage }}%
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+

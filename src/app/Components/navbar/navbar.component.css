@@ -1,0 +1,23 @@
+.logo
+{
+width: 8%;
+}
+.navbar-brand
+{
+width: 20% !important;
+}
+.fa-solid
+{
+width: 20 !important;
+}
+
+@media (max-width: 575.98px) { 
+.container
+{
+flex-direction: column !important;
+justify-content: center !important;
+align-items: center !important;
+}
+
+
+ }

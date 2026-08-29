@@ -1,0 +1,223 @@
+
+<form class="filter-form">
+
+  <!-- Filters -->
+  <div class="filters-row">
+
+    <!-- Company -->
+    <div class="filter-item">
+
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label class="label">
+          اسم الشركة
+        </mat-label>
+
+        <mat-select
+          (selectionChange)="applyRequestTypeFilter($event.value)">
+
+          <mat-option
+            *ngFor="let type of requestTypes"
+            [value]="type.value">
+
+            {{ type.label }}
+
+          </mat-option>
+
+        </mat-select>
+
+      </mat-form-field>
+
+    </div>
+
+
+    <!-- Start Date -->
+    <div class="filter-item">
+
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label class="label">
+          تاريخ البداية
+        </mat-label>
+
+        <input
+          matInput
+          placeholder="اختر تاريخ"
+          type="date"
+          (change)="onStartDateFilterChange($event)"
+          [(ngModel)]="addedDateFilter"
+          name="startDate">
+
+      </mat-form-field>
+
+    </div>
+
+
+    <!-- End Date + Search -->
+    <div class="filter-item end-date-container">
+
+      <mat-form-field
+        appearance="outline"
+        class="date-field">
+
+        <mat-label class="label">
+          تاريخ النهاية
+        </mat-label>
+
+        <input
+          matInput
+          placeholder="اختر تاريخ"
+          type="date"
+          (change)="onEndDateFilterChange($event)"
+          [(ngModel)]="addedSecondDate"
+          name="endDate">
+
+      </mat-form-field>
+
+
+      <button
+        mat-raised-button
+        type="button"
+        (click)="applyFilters()"
+        class="search-button">
+
+        Search
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- Actions -->
+  <div class="actions-row">
+
+    <!-- Diagram -->
+    <div class="action-card">
+
+      <div class="action-icon">
+
+        <mat-icon>
+          bar_chart
+        </mat-icon>
+
+      </div>
+
+      <div class="action-content">
+
+        <span>
+          عرض الرسم البياني
+        </span>
+
+        <button
+          mat-button
+          type="button"
+          (click)="openTotalAcceptedDialog()">
+
+          فتح الرسم البياني
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- Excel -->
+    <div class="action-card">
+
+      <div class="action-icon">
+
+        <mat-icon>
+          description
+        </mat-icon>
+
+      </div>
+
+      <div class="action-content">
+
+        <span>
+          تصدير البيانات
+        </span>
+
+        <button
+          mat-button
+          type="button"
+          (click)="exportToExcel()">
+
+          تحميل ملف الإكسيل
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</form>
+
+
+<!-- Companies Table -->
+
+<div class="table-wrapper">
+
+  <table class="companies-table">
+
+    <thead>
+
+      <tr>
+
+        <th>العدد</th>
+
+        <th>اسم الشركة</th>
+
+        <th>اجمالي عدد الطلبات</th>
+
+        <th>اجمالي عدد الطلبات المقبولة</th>
+
+        <th>نسبة المقبول</th>
+
+      </tr>
+
+    </thead>
+
+
+    <tbody>
+
+      <tr
+        *ngFor="let item of companies; let i = index">
+
+        <td class="index-cell">
+          {{ i + 1 }}
+        </td>
+
+        <td class="company-name">
+          {{ item.companyName }}
+        </td>
+
+        <td>
+          {{ item.totalNumber }}
+        </td>
+
+        <td>
+          {{ item.totalAcceptedNumber }}
+        </td>
+
+        <td>
+
+          <span class="percentage accepted">
+            {{ item.acceptedPercentage }}%
+          </span>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+

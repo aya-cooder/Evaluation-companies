@@ -1,0 +1,86 @@
+<div class="DashBoard">
+  <div class="content">
+    <aside class="sidebar" [ngClass]="{'close': !isSideBarEnable}">
+      <div class="sidebar-header">
+        <img src="assets/Logos/rsc.png" />
+        <h1>المركز التكنولوجى للتسجيل المساحى العقارى</h1>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li [ngClass]="{'active': isActive('/DashBoard/Evaluate')}">
+            <a [routerLink]="['/DashBoard/Evaluate']" routerLinkActive="active">
+              <i class="fas fa-chart-line"></i> <!-- مثال على أيقونة مختلفة -->
+              <span>طلبات الشركات</span>
+            </a>
+          </li>
+          <li [ngClass]="{'active': isActive('/DashBoard/AllFilter')}">
+            <a [routerLink]="['/DashBoard/AllFilter']" routerLinkActive="active">
+              <i class="fas fa-filter"></i> <!-- مثال على أيقونة مختلفة -->
+              <span>فلتر طلبات الشركات</span>
+            </a>
+          </li>
+          <li [ngClass]="{'active': isActive('/DashBoard/Edit')}">
+            <a [routerLink]="['/DashBoard/Edit']" routerLinkActive="active">
+              <i class="fas fa-edit"></i> <!-- مثال على أيقونة مختلفة -->
+              <span>التعديلات</span>
+            </a>
+          </li>
+          <li [ngClass]="{'active': isActive('/DashBoard/AllFilterEdit')}">
+            <a [routerLink]="['/DashBoard/AllFilterEdit']" routerLinkActive="active">
+              <i class="fas fa-sliders-h"></i> <!-- مثال على أيقونة مختلفة -->
+              <span>فلتر التعديلات</span>
+            </a>
+          </li>
+          <li [ngClass]="{'active': isActive('/DashBoard/NotUploaded')}">
+            <a [routerLink]="['/DashBoard/NotUploaded']" routerLinkActive="active">
+              <i class="fas fa-upload"></i> <!-- مثال على أيقونة مختلفة -->
+              <span>اجمالي الطلبات التي لم يتم رفعها مساحيا</span>
+            </a>
+          </li>
+          <li [ngClass]="{'active': isActive('/DashBoard/FliterCompany')}">
+            <a [routerLink]="['/DashBoard/FliterCompany']" routerLinkActive="active">
+              <i class="fas fa-filter"></i> <!-- مثال على أيقونة مختلفة -->
+              <span>فلتر  الخاص بالشركة   </span>
+            </a>
+          </li>
+          <li [ngClass]="{'active': isActive('/DashBoard/FliterEditCompany')}">
+            <a [routerLink]="['/DashBoard/FliterEditCompany']" routerLinkActive="active">
+              <i class="fas fa-filter"></i> <!-- مثال على أيقونة مختلفة -->
+              <span>فلتر  التعديلات  الخاص بالشركة   </span>
+            </a>
+          </li>
+
+          <li *ngIf="isAdmin" [ngClass]="{'active': isActive('/DashBoard/ReportsCompany')}">
+            <a [routerLink]="['/DashBoard/ReportsCompany']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <i class="fas fa-filter"></i> <!-- Icon example -->
+              <span> انشاء تقرير للشركات </span>
+            </a>
+          </li>
+          <li [ngClass]="{'active': isActive('/DashBoard/ViewReports')}">
+            <a [routerLink]="['/DashBoard/ViewReports']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <i class="fas fa-filter"></i> <!-- Icon example -->
+              <span> رؤية   التقرارير  </span>
+            </a>
+          </li>
+          
+          
+          
+          <li [ngClass]="{'active': isActive('/DashBoard/')}">
+            <a (click)="logout()">
+              <i class="fas fa-sign-out-alt"></i> <!-- Logout icon -->
+              <span>تسجيل الخروج</span>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <button [ngClass]="{'close-button': !isSideBarEnable}" (click)="toggleSideBar()" class="toggle-sideBar">
+        <i *ngIf="!isSideBarEnable" class="fa-solid fa-angle-right"></i>
+        <i *ngIf="isSideBarEnable" class="fa-solid fa-angle-left"></i>
+      </button>
+    </aside>
+    <div class="Content" [ngClass]="{'width-all': !isSideBarEnable}">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,673 @@
+
+/* =========================================
+   Dashboard - Global
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.DashBoard {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.DashBoard .content {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+
+  position: relative;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.DashBoard .content .sidebar {
+  width: 290px;
+  min-width: 290px;
+  height: 100vh;
+
+  background-color: #203647;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  z-index: 1000;
+
+  transition:
+    width 0.3s ease,
+    min-width 0.3s ease,
+    transform 0.3s ease;
+
+  overflow: visible;
+}
+
+
+/* =========================================
+   Sidebar Header
+========================================= */
+
+.DashBoard .content .sidebar .sidebar-header {
+  width: 100%;
+
+  padding: 20px 15px 15px;
+
+  text-align: center;
+
+  flex-shrink: 0;
+}
+
+.DashBoard .content .sidebar .sidebar-header img {
+  width: 100px;
+  max-width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+
+  display: block;
+
+  margin: 0 auto 12px;
+}
+
+.DashBoard .content .sidebar .sidebar-header h1 {
+  margin: 0;
+
+  color: #f5f5f5;
+
+  font-size: 20px;
+  line-height: 1.6;
+
+  font-weight: 500;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   Sidebar Navigation
+========================================= */
+
+.DashBoard .content .sidebar .sidebar-nav {
+  flex: 1;
+
+  width: 100%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 10px 10px 20px;
+}
+
+.DashBoard .content .sidebar .sidebar-nav::-webkit-scrollbar {
+  width: 5px;
+}
+
+.DashBoard .content .sidebar .sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.DashBoard .content .sidebar .sidebar-nav ul {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+}
+
+
+/* =========================================
+   Navigation Items
+========================================= */
+
+.DashBoard .content .sidebar .sidebar-nav ul li {
+  width: 100%;
+
+  min-height: 55px;
+
+  margin-bottom: 6px;
+
+  padding: 12px 14px;
+
+  border: 0;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  color: #f0f0f0;
+
+  font-size: 17px;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.DashBoard .content .sidebar .sidebar-nav ul li a {
+  width: 100%;
+
+  min-height: 30px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  direction: rtl;
+
+  line-height: 1.5;
+}
+
+.DashBoard .content .sidebar .sidebar-nav ul li a span {
+  flex: 1;
+
+  text-align: right;
+
+  white-space: normal;
+
+  word-break: normal;
+}
+
+.DashBoard .content .sidebar .sidebar-nav ul li a i {
+  width: 25px;
+  min-width: 25px;
+
+  text-align: center;
+
+  font-size: 19px;
+
+  transition: color 0.25s ease;
+}
+
+
+/* =========================================
+   Active
+========================================= */
+
+.DashBoard .content .sidebar .sidebar-nav ul li.active {
+  background-color: #344952;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+.DashBoard .content .sidebar .sidebar-nav ul li.active a i {
+  color: #f0ad4e;
+}
+
+
+/* =========================================
+   Hover
+========================================= */
+
+.DashBoard .content .sidebar .sidebar-nav ul li:hover {
+  background-color: #344952;
+
+  transform: translateX(-3px);
+}
+
+.DashBoard .content .sidebar .sidebar-nav ul li:hover a i {
+  color: #f0ad4e;
+}
+
+
+/* =========================================
+   Toggle Button
+========================================= */
+
+.DashBoard .content .sidebar .toggle-sideBar {
+  position: absolute;
+
+  top: 50%;
+  right: -34px;
+
+  transform: translateY(-50%);
+
+  width: 34px;
+  height: 65px;
+
+  padding: 0;
+
+  border: none;
+
+  background-color: #203647;
+
+  color: #fff;
+
+  cursor: pointer;
+
+  border-radius: 0 8px 8px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1100;
+
+  transition:
+    background-color 0.25s ease,
+    right 0.3s ease;
+}
+
+.DashBoard .content .sidebar .toggle-sideBar:hover {
+  background-color: #344952;
+}
+
+.DashBoard .content .sidebar .toggle-sideBar i {
+  font-size: 18px;
+}
+
+
+/* =========================================
+   Closed Sidebar - Desktop
+========================================= */
+
+.DashBoard .content .sidebar.close {
+  width: 0;
+  min-width: 0;
+
+  overflow: visible;
+}
+
+.DashBoard .content .sidebar.close .sidebar-header,
+.DashBoard .content .sidebar.close .sidebar-nav {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.DashBoard .content .sidebar.close .toggle-sideBar {
+  right: -34px;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.DashBoard .content .Content {
+  width: calc(100% - 290px);
+  height: 100vh;
+
+  padding: 20px;
+
+  direction: rtl;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background-color: #f5f5f5;
+
+  transition:
+    width 0.3s ease,
+    padding 0.3s ease;
+}
+
+.DashBoard .content .Content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.DashBoard .content .Content::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 10px;
+}
+
+
+/* =========================================
+   Content When Sidebar Closed
+========================================= */
+
+.DashBoard .content .Content.width-all {
+  width: 100%;
+}
+
+
+/* =========================================
+   Icons
+========================================= */
+
+.fas,
+.fa-solid {
+  color: rgba(245, 226, 140, 0.87);
+}
+
+
+/* =========================================
+   LARGE TABLET / SMALL LAPTOP
+   1200px and below
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .DashBoard .content .sidebar {
+    width: 260px;
+    min-width: 260px;
+  }
+
+  .DashBoard .content .Content {
+    width: calc(100% - 260px);
+
+    padding: 18px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header h1 {
+    font-size: 18px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li {
+    font-size: 16px;
+
+    padding: 11px 12px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li a {
+    gap: 10px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li a i {
+    font-size: 18px;
+  }
+}
+
+
+/* =========================================
+   TABLET
+   992px and below
+========================================= */
+
+@media (max-width: 992px) {
+
+  .DashBoard .content .sidebar {
+    width: 235px;
+    min-width: 235px;
+  }
+
+  .DashBoard .content .Content {
+    width: calc(100% - 235px);
+
+    padding: 15px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header {
+    padding: 15px 10px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header img {
+    width: 80px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header h1 {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav {
+    padding: 8px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li {
+    min-height: 50px;
+
+    padding: 10px;
+
+    font-size: 14px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li a {
+    gap: 8px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li a i {
+    width: 22px;
+    min-width: 22px;
+
+    font-size: 17px;
+  }
+}
+
+
+/* =========================================
+   SMALL TABLET
+   768px and below
+========================================= */
+
+@media (max-width: 768px) {
+
+  .DashBoard {
+    overflow: hidden;
+  }
+
+  .DashBoard .content {
+    display: block;
+
+    position: relative;
+  }
+
+
+  /* -----------------------------------------
+     Sidebar becomes Drawer
+  ----------------------------------------- */
+
+  .DashBoard .content .sidebar {
+    width: 280px;
+    min-width: 280px;
+
+    height: 100vh;
+
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    transform: translateX(0);
+
+    box-shadow:
+      -5px 0 20px rgba(0, 0, 0, 0.25);
+
+    transition:
+      transform 0.3s ease;
+  }
+
+  /*
+     When closed on mobile
+  */
+
+  .DashBoard .content .sidebar.close {
+    width: 280px;
+    min-width: 280px;
+
+    transform: translateX(100%);
+
+    overflow: visible;
+  }
+
+  .DashBoard .content .sidebar.close .sidebar-header,
+  .DashBoard .content .sidebar.close .sidebar-nav {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+
+  /* -----------------------------------------
+     Toggle Button
+  ----------------------------------------- */
+
+  .DashBoard .content .sidebar .toggle-sideBar {
+    right: auto;
+    left: -38px;
+
+    width: 38px;
+    height: 58px;
+
+    border-radius: 8px 0 0 8px;
+  }
+
+
+  /* -----------------------------------------
+     Main Content
+  ----------------------------------------- */
+
+  .DashBoard .content .Content,
+  .DashBoard .content .Content.width-all {
+    width: 100%;
+
+    height: 100vh;
+
+    padding: 15px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   576px and below
+========================================= */
+
+@media (max-width: 576px) {
+
+  .DashBoard .content .sidebar {
+    width: 270px;
+    min-width: 270px;
+  }
+
+  .DashBoard .content .sidebar.close {
+    width: 270px;
+    min-width: 270px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header {
+    padding: 18px 12px 12px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header img {
+    width: 75px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header h1 {
+    font-size: 15px;
+
+    line-height: 1.5;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav {
+    padding: 8px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li {
+    min-height: 48px;
+
+    margin-bottom: 5px;
+
+    padding: 9px 10px;
+
+    font-size: 14px;
+
+    border-radius: 7px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li a {
+    gap: 8px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li a i {
+    width: 21px;
+    min-width: 21px;
+
+    font-size: 16px;
+  }
+
+  .DashBoard .content .Content,
+  .DashBoard .content .Content.width-all {
+    padding: 12px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+   400px and below
+========================================= */
+
+@media (max-width: 400px) {
+
+  .DashBoard .content .sidebar {
+    width: 250px;
+    min-width: 250px;
+  }
+
+  .DashBoard .content .sidebar.close {
+    width: 250px;
+    min-width: 250px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header img {
+    width: 65px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header h1 {
+    font-size: 14px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li {
+    font-size: 13px;
+
+    padding: 8px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li a {
+    gap: 7px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li a i {
+    font-size: 15px;
+  }
+
+  .DashBoard .content .Content,
+  .DashBoard .content .Content.width-all {
+    padding: 10px;
+  }
+}
+
+
+/* =========================================
+   Landscape Mobile
+========================================= */
+
+@media (max-height: 600px) and (max-width: 768px) {
+
+  .DashBoard .content .sidebar .sidebar-header {
+    padding: 10px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header img {
+    width: 55px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-header h1 {
+    font-size: 13px;
+  }
+
+  .DashBoard .content .sidebar .sidebar-nav ul li {
+    min-height: 42px;
+
+    margin-bottom: 3px;
+
+    padding: 7px 9px;
+  }
+}

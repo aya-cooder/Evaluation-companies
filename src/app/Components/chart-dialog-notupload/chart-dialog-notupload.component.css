@@ -1,0 +1,48 @@
+/* chart-dialog.component.css */
+
+mat-dialog-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  #dialogChartCanvas {
+    width: 100% !important;
+    height: 400px !important;
+  }
+  
+  
+  mat-dialog-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  mat-dialog-actions button {
+    background-color: #ee0659;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  mat-dialog-actions button:hover {
+    background-color: #d0044b;
+  }
+  .chart-container {
+    margin: 20px auto;
+  }
+  
+  .mat-dialog-content {
+    overflow: hidden;
+  }
+  

@@ -1,0 +1,311 @@
+
+/* ==============================
+   Main Container
+================================ */
+
+.container {
+  width: calc(100% - 40px);
+  max-width: 1000px;
+  margin: 35px auto;
+  padding: 35px;
+  background-color: #203647;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+
+/* ==============================
+   Main Title
+================================ */
+
+.container h2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 30px;
+  font-family: Arial, sans-serif;
+}
+
+
+/* ==============================
+   Form
+================================ */
+
+form {
+  width: 100%;
+}
+
+
+/* ==============================
+   Step Content
+================================ */
+
+.form-group {
+  margin-bottom: 25px;
+  text-align: right;
+}
+
+
+/* Section Title */
+
+.form-group h3 {
+  text-align: center;
+  color: #203647;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 5px 0 25px;
+}
+
+
+/* ==============================
+   Labels
+================================ */
+
+label {
+  display: block;
+  color: #203647;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+
+/* ==============================
+   Inputs
+================================ */
+
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #203647;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+
+/* Select */
+
+select.form-control {
+  height: 50px;
+  cursor: pointer;
+}
+
+
+/* Textarea */
+
+textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+
+/* Focus */
+
+.form-control:focus {
+  border-color: #ee0659;
+  box-shadow: 0 0 0 3px rgba(238, 6, 89, 0.12);
+}
+
+
+/* ==============================
+   Buttons
+================================ */
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+
+button {
+  min-width: 130px;
+  padding: 11px 25px;
+  border: none;
+  border-radius: 25px;
+  background-color: #ee0659;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+
+button:hover {
+  background-color: #c9044b;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+}
+
+
+button:active {
+  transform: scale(0.97);
+}
+
+
+/* Previous / Next */
+
+button[matStepperPrevious],
+button[matStepperNext] {
+  background-color: #203647;
+  color: #ffffff;
+}
+
+
+button[matStepperPrevious]:hover,
+button[matStepperNext]:hover {
+  background-color: #162b39;
+}
+
+
+/* ==============================
+   Angular Material Stepper
+================================ */
+
+.mat-horizontal-stepper {
+  background-color: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+
+/* Stepper Header */
+
+.mat-step-header {
+  border-radius: 8px;
+  margin: 4px;
+  transition: all 0.25s ease;
+}
+
+
+/* Step Icon */
+
+.mat-step-header .mat-step-icon {
+  background-color: #ee0659 !important;
+  color: #ffffff !important;
+}
+
+
+/* Active Step */
+
+.mat-step-header.mat-active {
+  background-color: #ee0659 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+
+/* Hover */
+
+.mat-step-header:hover {
+  background-color: #f3f3f3;
+}
+
+
+/* Step Content */
+
+.mat-step-content {
+  padding: 25px 20px 20px;
+}
+
+
+/* ==============================
+   Responsive
+================================ */
+
+@media (max-width: 768px) {
+
+  .container {
+    width: calc(100% - 24px);
+    margin: 20px auto;
+    padding: 20px 15px;
+    border-radius: 14px;
+  }
+
+  .container h2 {
+    font-size: 23px;
+    margin-bottom: 20px;
+  }
+
+  .form-group h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .mat-step-content {
+    padding: 20px 12px;
+  }
+
+  .form-control {
+    font-size: 15px;
+  }
+
+  .buttons-container {
+    gap: 8px;
+  }
+
+  button {
+    min-width: 115px;
+    font-size: 15px;
+    padding: 10px 18px;
+  }
+
+}
+
+
+/* ==============================
+   Small Mobile
+================================ */
+
+@media (max-width: 480px) {
+
+  .container {
+    width: calc(100% - 16px);
+    margin: 10px auto;
+    padding: 15px 10px;
+  }
+
+  .container h2 {
+    font-size: 20px;
+  }
+
+  .form-group h3 {
+    font-size: 16px;
+  }
+
+  .mat-step-content {
+    padding: 15px 8px;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+  }
+
+  .buttons-container button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  select.form-control {
+    height: 46px;
+  }
+
+  textarea.form-control {
+    min-height: 130px;
+  }
+
+}
+

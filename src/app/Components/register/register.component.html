@@ -1,0 +1,85 @@
+<div class="parent clearfix">
+  <div class="bg-illustration">
+    <div class="burger-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <section class="login">
+    <div class="container">
+      <h1 class="text-center">إنشاء حساب جديد</h1>
+      <div class="login-form">
+     
+
+        <form [formGroup]="register" (ngSubmit)="registerSubmit()">
+          <div class="row g-3">
+            <div class="col">
+              <input class="form-control" formControlName="firstName" placeholder="First Name" aria-label="First Name">
+              <div *ngIf="register.get('firstName')?.touched && register.get('firstName')?.invalid" class="text-danger">
+                First Name is required
+              </div>
+            </div>
+            <div class="col">
+              <input class="form-control" formControlName="lastName" placeholder="Last Name" aria-label="Last Name">
+              <div *ngIf="register.get('lastName')?.touched && register.get('lastName')?.invalid" class="text-danger">
+                Last Name is required
+              </div>
+            </div>
+          </div>
+          <div class="my-3">
+            <input class="form-control" formControlName="userName" placeholder="Username" aria-label="Username">
+            <div *ngIf="register.get('userName')?.touched && register.get('userName')?.invalid" class="text-danger">
+              Username is required
+            </div>
+          </div>
+          <div class="my-3">
+            <input  [type]="isPasswordVisible ? 'text' : 'password'" class="form-control" formControlName="password" placeholder="Password" aria-label="Password">
+            <fa-icon 
+            [icon]="isPasswordVisible ? faEye : faEyeSlash" 
+            class="password-icon" 
+            (click)="togglePasswordVisibility()" >
+          </fa-icon>
+            <div *ngIf="register.get('password')?.touched && register.get('password')?.invalid" class="text-danger">
+              Password is required 
+            </div>
+          </div>
+          <div class="my-3">
+            <label for="roleDropdown" class="form-label">Company</label>
+            <select class="form-control" formControlName="companyId" id="companyDropdown" aria-label="Company">
+              <option value="" disabled selected>Select a company</option>
+              <option *ngFor="let company of requestTypes" [value]="company.value">
+                {{ company.label }}
+              </option>
+            </select>
+            <div *ngIf="register.get('companyId')?.touched && register.get('companyId')?.invalid" class="text-danger">
+              Company is required
+            </div>
+          </div>
+          
+          <div class="my-3">
+            <label for="roleDropdown" class="form-label">Role</label>
+            <select class="form-control" formControlName="role" aria-label="Role">
+                <!-- Placeholder option -->
+                <option value="" disabled selected>Select a role</option>
+                <!-- Actual options -->
+                <option value="admin">admin</option>
+                <option value="user">user</option>
+            </select>
+            <div *ngIf="register.get('role')?.touched && register.get('role')?.invalid" class="text-danger">
+                Role is required
+            </div>
+        </div>
+        
+        
+          
+          <button type="submit" class="btn btn-primary form-control text-white" >Register</button>
+
+      
+        </form>
+       
+      </div>
+    </div>
+  </section>
+</div>
